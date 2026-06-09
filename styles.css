@@ -117,6 +117,10 @@ button {
   transition: background 160ms ease, color 160ms ease;
 }
 
+.nav-button svg {
+  flex: 0 0 auto;
+}
+
 .nav-button + .nav-button {
   margin-top: 4px;
 }
@@ -744,16 +748,34 @@ svg {
   }
 
   .nav {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    display: flex;
     gap: 8px;
     padding: 12px;
     overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
   }
 
   .nav-button {
-    justify-content: center;
-    min-width: 130px;
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    width: 158px;
+    min-width: 158px;
+    min-height: 58px;
+    white-space: normal;
+  }
+
+  .nav-button + .nav-button {
+    margin-top: 0;
+  }
+
+  .nav-button span {
+    min-width: 0;
+    line-height: 1.18;
   }
 
   .local-status {
